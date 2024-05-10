@@ -25,12 +25,16 @@ int main(int argc, char* argv[])
 	{
 		Flow::Binary::File file = Flow::Binary::File("test.bin", Flow::FileMode::Write);
 		file << std::string("Test");
+		file << (uint32_t)69420;
 	}
 	{
 		Flow::Binary::File file = Flow::Binary::File("test.bin", Flow::FileMode::Read);
 
 		std::string val = file.Read<std::string>(0);
 		std::cout << "Binary str: " << val << std::endl;
+
+		uint32_t uVal = file.Read<uint32_t>(Flow::Binary::SizeOf(val));
+		std::cout << "Binary u32: " << uVal << std::endl;
 	}
 
 	return 0;

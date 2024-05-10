@@ -39,14 +39,6 @@ namespace Flow::Binary
 		}
 	}
 
-	void File::Write(const std::string& str)
-	{
-		int32_t size = (int32_t)str.size();
-		m_Write.write(reinterpret_cast<const char*>(&size), sizeof(int32_t));
-
-		m_Write.write(str.c_str(), size);
-	}
-
 	void File::StartRead()
 	{
 		std::ifstream fileStream = std::ifstream(m_Path, std::ios::in | std::ios::binary);

@@ -17,16 +17,19 @@ namespace Flow::Binary
 		virtual ~File();
 
 		// Writing
-		void Write(const std::string& str);
+		template<typename T>
+		void Write(T data);
+		template<>
+		void Write<std::string>(std::string str);
 
 		template<typename T>
 		File& operator << (T data);
 
 		// Reading
 		template<typename T>
-		T Read(uint32_t offset = 0);
+		T Read(size_t offset = 0);
 		template<>
-		std::string Read<std::string>(uint32_t offset);
+		std::string Read<std::string>(size_t offset);
 
 	private:
 		void StartRead();
@@ -45,22 +48,41 @@ namespace Flow::Binary
 
 	// Writing
 	template<typename T>
+	inline void File::Write(T data)
+	{
+		m_Write.write(reinterpret_cast<const char*>(&data), sizeof(T));
+	}
+
+	template<>
+	inline void File::Write(std::string str)
+	{
+		int32_t size = (int32_t)str.size();
+		m_Write.write(reinterpret_cast<const char*>(&size), sizeof(int32_t));
+
+		m_Write.write(str.c_str(), size);
+	}
+
+	template<typename T>
 	inline File& File::operator << (T data)
 	{
-		Write(data);
+		Write<T>(data);
 		return *this;
 	}
 
 	// Reading
 	template<typename T>
-	inline T File::Read(uint32_t offset)
+	inline T File::Read(size_t offset)
 	{
 		// TODO: Logging
-		return T();
+		T def = {};
+		memcpy(&def, &m_Read[offset], sizeof(T));
+		offset += sizeof(T);
+
+		return def;
 	}
 
 	template<>
-	inline std::string File::Read<std::string>(uint32_t offset)
+	inline std::string File::Read<std::string>(size_t offset)
 	{
 		if (offset + sizeof(int32_t) > m_Read.size())
 		{

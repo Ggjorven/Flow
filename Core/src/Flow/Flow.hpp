@@ -9,5 +9,6 @@
 
 // Binary
 #include "Flow/Binary/Binary.hpp"
+#include "Flow/Binary/BinaryOptions.hpp"
 
 // Utils
