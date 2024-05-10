@@ -22,6 +22,14 @@ project "Flow"
 		"src/Flow/Core/**.hpp",
 		"src/Flow/Core/**.cpp",
 
+		"src/Flow/Yaml/**.h",
+		"src/Flow/Yaml/**.hpp",
+		"src/Flow/Yaml/**.cpp",
+
+		"src/Flow/Binary/**.h",
+		"src/Flow/Binary/**.hpp",
+		"src/Flow/Binary/**.cpp",
+
 		"src/Flow/Utils/**.h",
 		"src/Flow/Utils/**.hpp",
 		"src/Flow/Utils/**.cpp"

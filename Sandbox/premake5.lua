@@ -27,12 +27,19 @@ project "Sandbox"
 		"src",
 		"%{wks.location}/vendor",
 
-		"%{wks.location}/Core/src"
+		"%{wks.location}/Core/src",
+
+		"%{Dependencies.yaml_cpp.IncludeDir}"
 	}
 
 	links
 	{
 		"Flow"
+	}
+
+	defines
+	{
+		"yaml_cpp_EXPORTS"
 	}
 
 	disablewarnings
