@@ -37,5 +37,16 @@ int main(int argc, char* argv[])
 		std::cout << "Binary u32: " << uVal << std::endl;
 	}
 
+	// Watch files in working directory
+	Flow::Watcher::Watch watch("", [](const std::filesystem::path& path, const Flow::Watcher::EventType type)
+	{
+		std::cout << Flow::Watcher::EventToString(path, type) << std::endl;
+	});
+
+	while (true)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(5));
+	}
+
 	return 0;
 }

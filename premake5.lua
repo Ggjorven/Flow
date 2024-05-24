@@ -16,6 +16,10 @@ Dependencies =
 	{
 		LibName = "yaml-cpp",
 		IncludeDir = "%{wks.location}/vendor/yaml-cpp/include"
+	},
+	filewatch = 
+	{
+		IncludeDir = "%{wks.location}/vendor/filewatch/include"
 	}
 }
 ------------------------------------------------------------------------------

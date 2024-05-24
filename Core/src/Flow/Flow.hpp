@@ -11,4 +11,7 @@
 #include "Flow/Binary/Binary.hpp"
 #include "Flow/Binary/BinaryOptions.hpp"
 
+// Watch
+#include "Flow/Watch/FileWatch.hpp"
+
 // Utils

@@ -30,6 +30,10 @@ project "Flow"
 		"src/Flow/Binary/**.hpp",
 		"src/Flow/Binary/**.cpp",
 
+		"src/Flow/Watch/**.h",
+		"src/Flow/Watch/**.hpp",
+		"src/Flow/Watch/**.cpp",
+
 		"src/Flow/Utils/**.h",
 		"src/Flow/Utils/**.hpp",
 		"src/Flow/Utils/**.cpp"
@@ -46,7 +50,8 @@ project "Flow"
 		"src",
 		"src/Flow",
 
-		"%{Dependencies.yaml_cpp.IncludeDir}"
+		"%{Dependencies.yaml_cpp.IncludeDir}",
+		"%{Dependencies.filewatch.IncludeDir}"
 	}
 
 	links
