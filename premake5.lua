@@ -15,11 +15,11 @@ Dependencies =
 	yaml_cpp = 
 	{
 		LibName = "yaml-cpp",
-		IncludeDir = "%{wks.location}/vendor/yaml-cpp/include"
+		IncludeDir = "%{wks.location}/Core/vendor/yaml-cpp/include"
 	},
 	filewatch = 
 	{
-		IncludeDir = "%{wks.location}/vendor/filewatch/include"
+		IncludeDir = "%{wks.location}/Core/vendor/filewatch/include"
 	}
 }
 ------------------------------------------------------------------------------
@@ -44,10 +44,6 @@ workspace "Flow"
 	{
 		"MultiProcessorCompile"
 	}
-
-group "Dependencies"
-	include "vendor/yaml-cpp"
-group ""
 
 group "Flow"
 	include "Core"

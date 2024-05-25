@@ -36,7 +36,11 @@ project "Flow"
 
 		"src/Flow/Utils/**.h",
 		"src/Flow/Utils/**.hpp",
-		"src/Flow/Utils/**.cpp"
+		"src/Flow/Utils/**.cpp",
+
+		"vendor/**.h",
+		"vendor/**.h",
+		"vendor/**.cpp"
 	}
 
 	defines
@@ -52,11 +56,6 @@ project "Flow"
 
 		"%{Dependencies.yaml_cpp.IncludeDir}",
 		"%{Dependencies.filewatch.IncludeDir}"
-	}
-
-	links
-	{
-		"%{Dependencies.yaml_cpp.LibName}",
 	}
 
 	disablewarnings
