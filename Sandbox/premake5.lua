@@ -28,9 +28,6 @@ project "Sandbox"
 		"%{wks.location}/vendor",
 
 		"%{wks.location}/Core/src",
-
-		"%{Dependencies.yaml_cpp.IncludeDir}",
-		"%{Dependencies.filewatch.IncludeDir}"
 	}
 
 	links

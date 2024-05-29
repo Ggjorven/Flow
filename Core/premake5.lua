@@ -38,9 +38,13 @@ project "Flow"
 		"src/Flow/Utils/**.hpp",
 		"src/Flow/Utils/**.cpp",
 
-		"vendor/**.h",
-		"vendor/**.h",
-		"vendor/**.cpp"
+		"src/filewatch/**.h",
+		"src/filewatch/**.hpp",
+		"src/filewatch/**.cpp",
+
+		"src/yaml-cpp/**.h",
+		"src/yaml-cpp/**.hpp",
+		"src/yaml-cpp/**.cpp"
 	}
 
 	defines
@@ -53,9 +57,6 @@ project "Flow"
 	{
 		"src",
 		"src/Flow",
-
-		"%{Dependencies.yaml_cpp.IncludeDir}",
-		"%{Dependencies.filewatch.IncludeDir}"
 	}
 
 	disablewarnings
